@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 import api, { setToken } from '../services/api'
 import { stopTrackingThisBrowser } from '../services/track'
 
+
 export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
