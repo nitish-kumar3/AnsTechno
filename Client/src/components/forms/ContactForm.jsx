@@ -243,8 +243,8 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="glow-border rounded-[2rem] p-[1.5px]">
-      <div className="relative overflow-hidden rounded-[1.9rem] bg-[#07100c] p-6 sm:p-9">
+    <div className="glow-border min-w-0 w-full max-w-full rounded-[2rem] p-[1.5px]">
+      <div className="relative overflow-hidden rounded-[1.9rem] bg-[#07100c] px-4 py-5 sm:p-9">
         <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-500/15 blur-3xl" />
 
         <AnimatePresence mode="wait">
@@ -336,7 +336,7 @@ export default function ContactForm() {
                   <textarea
                     rows={6}
                     maxLength={MAX}
-                    className={`${inputClass} resize-none`}
+                    className={`${inputClass} h-32 resize-none sm:h-auto`}
                     placeholder="Tell us about your project or question..."
                     value={form.message}
                     onChange={set('message')}

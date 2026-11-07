@@ -36,10 +36,10 @@ function FloatCard({ icon: Icon, title, value, className, delay = 0 }) {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.8 + delay, duration: 0.6 }}
-      className={`absolute ${className}`}
+      className={`hidden sm:absolute sm:block ${className}`}
     >
       <div
-        className="animate-float flex items-center gap-3 rounded-2xl border border-white/10 bg-ink/80 px-4 py-3 shadow-xl backdrop-blur-xl"
+        className="animate-float flex max-w-[calc(100vw-3rem)] items-center gap-2 rounded-2xl border border-white/10 bg-ink/80 px-3 py-2.5 shadow-xl backdrop-blur-xl sm:max-w-none sm:gap-3 sm:px-4 sm:py-3"
         style={{ animationDelay: `${delay}s` }}
       >
         <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500/15 text-brand-400">
@@ -58,7 +58,7 @@ function DashboardMock() {
   const line =
     'M0 110 C40 100 60 80 100 85 S160 60 200 55 S270 70 300 40 S360 20 400 10'
   return (
-    <div className="p-5 sm:p-6">
+    <div className="p-4 sm:p-6">
       <div className="flex items-center justify-between">
         <div className="flex gap-1.5">
           <span className="h-3 w-3 rounded-full bg-white/20" />
@@ -73,14 +73,14 @@ function DashboardMock() {
       <div className="mt-6 flex items-end justify-between">
         <div>
           <p className="text-xs text-white/50">Growth overview</p>
-          <p className="mt-1 text-4xl font-bold">+248%</p>
+          <p className="mt-1 text-3xl font-bold sm:text-4xl">+248%</p>
         </div>
         <span className="flex items-center gap-1 rounded-full bg-brand-500/15 px-3 py-1 text-xs font-medium text-brand-300">
           <TrendingUp size={14} /> This quarter
         </span>
       </div>
 
-      <svg viewBox="0 0 400 140" className="mt-4 h-36 w-full">
+      <svg viewBox="0 0 400 140" className="mt-4 h-28 w-full sm:h-36">
         <defs>
           <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#19c39a" stopOpacity="0.45" />
@@ -100,7 +100,7 @@ function DashboardMock() {
         />
       </svg>
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
+      <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-3">
         {[
           ['Leads', '1.2k'],
           ['Traffic', '48k'],
@@ -108,10 +108,10 @@ function DashboardMock() {
         ].map(([label, value]) => (
           <div
             key={label}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-3"
+            className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.03] p-2 sm:p-3"
           >
             <p className="text-[11px] text-white/50">{label}</p>
-            <p className="mt-1 text-lg font-semibold">{value}</p>
+            <p className="mt-1 truncate text-sm font-semibold sm:text-lg">{value}</p>
           </div>
         ))}
       </div>
@@ -132,7 +132,7 @@ export default function Hero() {
       </div>
 
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2">
           {/* LEFT: content */}
           <div>
             <motion.div
@@ -164,13 +164,13 @@ export default function Hero() {
               {t('hero.text')}
             </motion.p>
 
-            <motion.div {...fadeUp(3)} className="mt-8 flex flex-wrap gap-3">
-              <Button to="/lets-connect">
+            <motion.div {...fadeUp(3)} className="mt-8 flex w-full flex-nowrap justify-center gap-2 sm:w-auto sm:flex-wrap sm:justify-start sm:gap-3">
+              <Button to="/lets-connect" className="whitespace-nowrap px-4 sm:px-6">
                 {/* Start a Project */}
                 {t('nav.startProject')}
                  <ArrowRight size={16} />
               </Button>
-              <Button to="/portfolio" variant="secondary">
+              <Button to="/portfolio" variant="secondary" className="whitespace-nowrap px-4 sm:px-6">
                 {t('hero.cta2')}
                 <ArrowRight size={16} className="text-brand-400" />
               </Button>
@@ -204,7 +204,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-xl"
+            className="relative mx-auto w-full max-w-xl overflow-hidden rounded-3xl sm:overflow-visible"
           >
             <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-brand-500/20 blur-3xl" />
             <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur">
@@ -223,14 +223,14 @@ export default function Hero() {
               icon={Megaphone}
               title="Ads ROI"
               value="+248%"
-              className="-left-3 top-12 sm:-left-10"
+              className="left-0 top-12 sm:-left-10"
             />
             <FloatCard
               icon={Bot}
               title="AI Automation"
               value="Active 24/7"
               delay={1.2}
-              className="-right-2 top-1/2 sm:-right-8"
+              className="right-0 top-1/2 sm:-right-8"
             />
             <FloatCard
               icon={Code}
