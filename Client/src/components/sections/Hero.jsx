@@ -134,7 +134,7 @@ export default function Hero() {
       <Container>
         <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2">
           {/* LEFT: content */}
-          <div>
+          <div className="min-w-0">
             <motion.div
               {...fadeUp(0)}
               className="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-300"
@@ -164,7 +164,7 @@ export default function Hero() {
               {t('hero.text')}
             </motion.p>
 
-            <motion.div {...fadeUp(3)} className="mt-8 flex w-full flex-nowrap justify-center gap-2 sm:w-auto sm:flex-wrap sm:justify-start sm:gap-3">
+            <motion.div {...fadeUp(3)} className="mt-8 flex w-full flex-wrap justify-center gap-2 sm:w-auto sm:justify-start sm:gap-3">
               <Button to="/lets-connect" className="whitespace-nowrap px-4 sm:px-6">
                 {/* Start a Project */}
                 {t('nav.startProject')}

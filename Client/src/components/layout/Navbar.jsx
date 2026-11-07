@@ -380,7 +380,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-1 md:flex">
             {links.map((l) => (
               <li key={l.to}>
                 <NavLink
@@ -410,7 +410,7 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop: language + theme + CTA */}
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2 md:flex">
             <LanguageToggle id="desktop" />
             <ThemeToggle />
             <Link
@@ -426,7 +426,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile: language + theme + menu button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <LanguageToggle id="mobile" />
             <ThemeToggle />
             <button
@@ -447,7 +447,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-full mt-2 rounded-3xl border border-white/10 bg-ink/90 p-3 backdrop-blur-xl lg:hidden"
+              className="absolute inset-x-0 top-full mt-2 rounded-3xl border border-white/10 bg-ink/90 p-3 backdrop-blur-xl md:hidden"
             >
               {links.map((l) => (
                 <NavLink

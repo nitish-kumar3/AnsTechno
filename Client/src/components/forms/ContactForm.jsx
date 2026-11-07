@@ -284,7 +284,7 @@ export default function ContactForm() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="relative"
+              className="relative w-full min-w-0"
             >
               <h2 className="text-2xl font-bold sm:text-3xl">Send us a message</h2>
               <p className="mt-2 text-sm text-white/55">

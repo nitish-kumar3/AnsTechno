@@ -25,7 +25,11 @@
   html {
     scroll-behavior: smooth;
   }
+  html,
   body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background: var(--color-ink);
     color: #fff;
     font-family: var(--font-sans);
