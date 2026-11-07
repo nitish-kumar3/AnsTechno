@@ -8,6 +8,9 @@ export const translations = {
     'nav.connect': "Let's Connect",
     'nav.startProject': 'Start a Project',
     'nav.verify': 'Verify Certificate',
+    'nav.blog': 'Blog',
+    'nav.talent': 'Hire Talent',
+    'nav.dukaan': 'Digital Dukaan',
 
     'hero.badge': 'Digital Agency · Software Company',
     'hero.title': 'We build brands, software &',
@@ -108,6 +111,9 @@ export const translations = {
     'nav.connect': 'संपर्क करें',
     'nav.startProject': 'प्रोजेक्ट शुरू करें',
     'nav.verify': 'सर्टिफिकेट जांचें',
+    'nav.blog': 'ब्लॉग',
+    'nav.talent': 'टैलेंट हायर करें',
+    'nav.dukaan': 'डिजिटल दुकान',
 
     'hero.badge': 'डिजिटल एजेंसी · सॉफ्टवेयर कंपनी',
     'hero.title': 'हम बनाते हैं ब्रांड, सॉफ्टवेयर और',

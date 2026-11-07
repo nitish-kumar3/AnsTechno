@@ -19,6 +19,9 @@ const pageNames = {
   '/portfolio': 'Portfolio',
   '/our-story': 'Our Story',
   '/lets-connect': "Let's Connect",
+  '/blog': 'Blog',
+  '/talent': 'Hire Talent',
+  '/digital-dukaan': 'Digital Dukaan',
 }
 const prettyPage = (path) => pageNames[path] || path
 

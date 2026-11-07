@@ -126,7 +126,7 @@ export default function InquiryDetail({ inquiry: q, onUpdate, onDelete }) {
   const [savingNotes, setSavingNotes] = useState(false)
   const notesChanged = notes !== (q.notes || '')
   const isCall = q.type === 'call'
-  const typeLabels = { call: 'Free call request', estimate: 'Cost estimate', quiz: 'Online check' }
+  const typeLabels = { call: 'Free call request', estimate: 'Cost estimate', quiz: 'Online check', hire: 'Hire request', dukaan: 'Dukaan request' }
 
   // WhatsApp ke liye number: 10 digit ho to aage 91 laga do
   const digits = (q.phone || '').replace(/\D/g, '')

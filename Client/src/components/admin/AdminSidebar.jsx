@@ -13,6 +13,12 @@ import {
   Star,
   Users,
   Award,
+  BookOpen,
+  ShieldCheck,
+  Trophy,
+  FileText,
+  Store,
+  GraduationCap,
 } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 
@@ -35,6 +41,11 @@ export default function AdminSidebar({ open, onClose, counts }) {
         { name: 'Services', to: '/admin/services', icon: Layers },
         { name: 'Projects', to: '/admin/projects', icon: FolderOpen },
         { name: 'Testimonials', to: '/admin/testimonials', icon: Star },
+        { name: 'Blog posts', to: '/admin/posts', icon: FileText },
+        { name: 'Impact numbers', to: '/admin/impact', icon: Trophy },
+        { name: 'Success stories', to: '/admin/stories', icon: BookOpen },
+        { name: 'Credentials', to: '/admin/credentials', icon: ShieldCheck },
+        { name: 'Digital Dukaan', to: '/admin/shops', icon: Store },
       ],
     },
     {
@@ -42,6 +53,7 @@ export default function AdminSidebar({ open, onClose, counts }) {
       items: [
         { name: 'Job openings', to: '/admin/openings', icon: Briefcase },
         { name: 'Certificates', to: '/admin/certificates', icon: Award },
+        { name: 'Talent wall', to: '/admin/talent', icon: GraduationCap },
         {
           name: 'Applications',
           to: '/admin/applications',

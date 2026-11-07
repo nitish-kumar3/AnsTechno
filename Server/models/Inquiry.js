@@ -22,7 +22,7 @@ import mongoose from 'mongoose'
 const inquirySchema = new mongoose.Schema(
   {
     // message = contact form, call = free call, estimate = cost estimator, quiz = online check
-    type: { type: String, enum: ['message', 'call', 'estimate', 'quiz'], default: 'message' },
+    type: { type: String, enum: ['message', 'call', 'estimate', 'quiz', 'hire', 'dukaan' ], default: 'message' },
     name: { type: String, required: true, trim: true },
     email: { type: String, lowercase: true, trim: true, default: '' },
     phone: { type: String, trim: true, default: '' },

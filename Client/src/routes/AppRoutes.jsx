@@ -53,6 +53,17 @@ import CostEstimator from '../pages/CostEstimator'
 import BusinessQuiz from '../pages/BusinessQuiz'
 import VerifyCertificate from '../pages/VerifyCertificate'
 import AdminCertificates from '../pages/admin/AdminCertificates'
+import AdminImpact from '../pages/admin/AdminImpact'
+import AdminStories from '../pages/admin/AdminStories'
+import AdminCredentials from '../pages/admin/AdminCredentials'
+import Blog from '../pages/Blog'
+import BlogPost from '../pages/BlogPost'
+import AdminPosts from '../pages/admin/AdminPosts'
+import Talent from '../pages/Talent'
+import AdminTalent from '../pages/admin/AdminTalent'
+import ShopPage from '../pages/ShopPage'
+import DigitalDukaan from '../pages/DigitalDukaan'
+import AdminShops from '../pages/admin/AdminShops'
 
 
 
@@ -71,8 +82,15 @@ export default function AppRoutes() {
         <Route path="online-check" element={<BusinessQuiz />} />
         <Route path="verify" element={<VerifyCertificate />} />
         <Route path="verify/:certId" element={<VerifyCertificate />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="talent" element={<Talent />} />
+        <Route path="digital-dukaan" element={<DigitalDukaan />} />
         <Route path="*" element={<NotFound />} />
       </Route>
+
+      {/* Dukaan ka apna page (Anstech ke navbar ke bina) */}
+      <Route path="shop/:slug" element={<ShopPage />} />
 
       {/* Admin panel */}
       <Route path="admin" element={<AdminRoot />}>
@@ -95,6 +113,12 @@ export default function AppRoutes() {
             <Route path="settings" element={<AdminPlaceholder title="Settings" />} /> */}
             <Route path="applications" element={<AdminApplications />} />
             <Route path="certificates" element={<AdminCertificates />} />
+            <Route path="impact" element={<AdminImpact />} />
+            <Route path="stories" element={<AdminStories />} />
+            <Route path="credentials" element={<AdminCredentials />} />
+            <Route path="posts" element={<AdminPosts />} />
+            <Route path="talent" element={<AdminTalent />} />
+            <Route path="shops" element={<AdminShops />} />
             <Route path="inquiries" element={<AdminInquiries />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>

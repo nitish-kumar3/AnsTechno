@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MessageCircle, Phone, RotateCcw, Send, Sparkles, X } from 'lucide-react'
 import { useChat } from '../../hooks/useChat'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useSettings } from '../../hooks/useContent'
 import CallRequestModal from '../forms/CallRequestModal'
 import ChatMessage from './ChatMessage'
+import { MessageCircle, Mic, Phone, RotateCcw, Send, Sparkles, Square, X } from 'lucide-react'
+import { useSpeech } from '../../hooks/useSpeech'
+
 
 const copy = {
   en: {
@@ -24,6 +26,12 @@ const copy = {
     placeholder: 'Type your question...',
     disclaimer: 'AI can make mistakes. Please do not share passwords or ID numbers.',
     call: 'Request a call back',
+    mic: 'Speak your question',
+    micStop: 'Stop',
+    listening: 'Listening... please speak',
+    micDenied: 'Microphone is blocked. Please allow it in your browser.',
+    listen: 'Listen',
+    stopListen: 'Stop',
     wa: 'WhatsApp us',
     newChat: 'New chat',
     close: 'Close chat',
@@ -49,6 +57,12 @@ const copy = {
     placeholder: 'अपना सवाल लिखें...',
     disclaimer: 'AI से गलती हो सकती है। कृपया पासवर्ड या ID नंबर न भेजें।',
     call: 'कॉल बैक का अनुरोध करें',
+    mic: 'बोलकर पूछें',
+    micStop: 'रोकें',
+    listening: 'सुन रहे हैं... बोलिए',
+    micDenied: 'माइक की अनुमति बंद है। कृपया ब्राउज़र में माइक की अनुमति दें।',
+    listen: 'सुनें',
+    stopListen: 'रोकें',
     wa: 'WhatsApp करें',
     newChat: 'नई चैट',
     close: 'चैट बंद करें',
@@ -85,6 +99,8 @@ export default function ChatWidget() {
   const c = copy[lang]
   const contact = useSettings()
   const { messages, loading, send, reset } = useChat()
+  const speech = useSpeech()
+  const autoSpeak = useRef(false) // bolkar poochha to jawab bhi bolkar milega
 
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
@@ -148,6 +164,29 @@ export default function ChatWidget() {
     const el = scrollRef.current
     if (el) el.scrollTop = el.scrollHeight
   }, [messages, loading, open])
+
+
+    // Bolkar poochha gaya ho to naya jawab apne aap bolo
+  useEffect(() => {
+    const last = messages[messages.length - 1]
+    if (autoSpeak.current && last?.role === 'bot') {
+      autoSpeak.current = false
+      if (last.text && !last.error) speech.speak(last.text)
+    }
+  }, [messages]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Chat band ho to bolna band
+  useEffect(() => {
+    if (!open) speech.stopSpeaking()
+  }, [open]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const toggleMic = () => {
+    if (speech.listening) return speech.stopListening()
+    speech.listen(lang, (text) => {
+      autoSpeak.current = true
+      send(text, lang)
+    })
+  }
 
   const submit = (e) => {
     e.preventDefault()
@@ -238,6 +277,9 @@ export default function ChatWidget() {
             <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
               <ChatMessage role="bot" text={c.greeting} onNavigate={onNavigate} />
 
+
+
+
               {messages.length === 0 && (
                 <div className="flex flex-wrap gap-2 pl-9">
                   {c.chips.map((chip) => (
@@ -260,7 +302,19 @@ export default function ChatWidget() {
                     {actions}
                   </ChatMessage>
                 ) : (
-                  <ChatMessage key={m.id} role="bot" text={m.text} onNavigate={onNavigate}>
+                  <ChatMessage
+                    key={m.id}
+                    role="bot"
+                    text={m.text}
+                    onNavigate={onNavigate}
+                    onSpeak={
+                      speech.canSpeak
+                        ? () => (speech.speaking ? speech.stopSpeaking() : speech.speak(m.text))
+                        : undefined
+                    }
+                    speaking={speech.speaking}
+                    speakLabel={speech.speaking ? c.stopListen : c.listen}
+                  >
                     {m.offerCall && actions}
                   </ChatMessage>
                 )
@@ -277,10 +331,32 @@ export default function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   maxLength={500}
-                  placeholder={c.placeholder}
+                  // placeholder={c.placeholder}
+                  placeholder={speech.listening ? c.listening : c.placeholder}
                   aria-label={c.placeholder}
                   className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-base outline-none transition placeholder:text-white/30 focus:border-brand-500/60 focus:ring-4 focus:ring-brand-500/10 sm:text-sm"
                 />
+                  {speech.canListen && (
+                  <button
+                    type="button"
+                    onClick={toggleMic}
+                    disabled={loading}
+                    aria-label={speech.listening ? c.micStop : c.mic}
+                    title={speech.listening ? c.micStop : c.mic}
+                    className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-full border transition disabled:opacity-40 ${
+                      speech.listening
+                        ? 'border-red-500 bg-red-500 text-[#ffffff]'
+                        : 'border-white/10 bg-white/5 text-white/80 hover:border-brand-500/40 hover:text-brand-300'
+                    }`}
+                  >
+                    {speech.listening && (
+                      <span className="absolute inset-0 animate-ping rounded-full bg-red-500/50" />
+                    )}
+                    <span className="relative">
+                      {speech.listening ? <Square size={16} /> : <Mic size={18} />}
+                    </span>
+                  </button>
+                )}
                 <button
                   type="submit"
                   disabled={loading || !input.trim()}
@@ -290,6 +366,11 @@ export default function ChatWidget() {
                   <Send size={18} />
                 </button>
               </form>
+
+                {(speech.error === 'not-allowed' || speech.error === 'service-not-allowed') && (
+                <p className="mt-2 text-center text-xs text-red-500">{c.micDenied}</p>
+              )}
+
               <p className="mt-2 text-center text-[11px] text-white/40">{c.disclaimer}</p>
             </div>
           </motion.div>

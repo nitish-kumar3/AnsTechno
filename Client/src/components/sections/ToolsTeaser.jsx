@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Calculator, Gauge } from 'lucide-react'
+import { ArrowRight, Calculator, Gauge, Store } from 'lucide-react'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -26,6 +26,13 @@ const copy = {
         text: 'Answer a few questions and get your digital score.',
         cta: 'Check my score',
       },
+      {
+        to: '/digital-dukaan',
+        icon: Store,
+        title: 'Digital Dukaan',
+        text: 'Get a simple online shop page with WhatsApp ordering and a QR poster.',
+        cta: 'Get my shop page',
+      },
     ],
   },
   hi: {
@@ -48,6 +55,13 @@ const copy = {
         text: 'कुछ सवालों के जवाब दें और अपना डिजिटल स्कोर पाएं।',
         cta: 'मेरा स्कोर देखें',
       },
+      {
+        to: '/digital-dukaan',
+        icon: Store,
+        title: 'डिजिटल दुकान',
+        text: 'WhatsApp ऑर्डर और QR पोस्टर के साथ अपनी दुकान का आसान ऑनलाइन पेज पाएं।',
+        cta: 'मेरा शॉप पेज बनवाएं',
+      },
     ],
   },
 }
@@ -61,7 +75,7 @@ export default function ToolsTeaser() {
       <Container>
         <SectionHeading eyebrow={c.eyebrow} title={c.title} highlight={c.highlight} text={c.text} />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {c.cards.map((card, i) => (
             <motion.div
               key={card.to}

@@ -14,6 +14,7 @@ const pickProjects = (res) => withId(res.projects)
 const pickOpenings = (res) => withId(res.openings)
 const pickTestimonials = (res) => res.testimonials
 const pickSettings = (res) => res.settings
+const pickItems = (res) => res.items
 
 function useApi(url, pick) {
   const [data, setData] = useState(cache[url] ?? null)
@@ -53,6 +54,10 @@ export const useServices = () => useApi('/services', pickServices)
 export const useProjects = () => useApi('/projects', pickProjects)
 export const useOpenings = () => useApi('/openings', pickOpenings)
 export const useTestimonials = () => useApi('/testimonials', pickTestimonials)
+export const useImpact = () => useApi('/impact', pickItems)
+export const useStories = () => useApi('/stories', pickItems)
+export const useCredentials = () => useApi('/credentials', pickItems)
+export const useTalent = () => useApi('/talent', pickItems)
 
 // Contact info: pehle default dikhti hai, API se aate hi asli wali aa jati hai
 export function useSettings() {

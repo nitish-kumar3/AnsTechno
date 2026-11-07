@@ -33,6 +33,8 @@ import OwnerSection from '../components/sections/OwnerSection'
 import Testimonials from '../components/sections/Testimonials'
 import CTA from '../components/sections/CTA'
 import { useLanguage } from '../hooks/useLanguage'
+import TrustSection from '../components/sections/TrustSection'
+import SuccessStories from '../components/sections/SuccessStories'
 
 export default function OurStory() {
   const { t } = useLanguage()
@@ -47,7 +49,9 @@ export default function OurStory() {
       />
       <MissionValues />
       <OwnerSection />
+      <TrustSection />
       <Testimonials />
+      <SuccessStories />
       <CTA
         title={t('story.ctaTitle')}
         highlight={t('story.ctaHighlight')}

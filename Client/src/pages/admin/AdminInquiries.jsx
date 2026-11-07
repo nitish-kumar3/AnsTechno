@@ -118,7 +118,7 @@ export default function AdminInquiries() {
 
                       {q.type && q.type !== 'message' && (
                         <span className="rounded-full border border-brand-500/30 bg-brand-500/10 px-2 py-0.5 text-[11px] text-brand-300">
-                          {{ call: 'Call request', estimate: 'Estimate', quiz: 'Online check' }[q.type]}
+                          {{ call: 'Call request', estimate: 'Estimate', quiz: 'Online check', hire: 'Hire request', dukaan: 'Dukaan request' }[q.type]}
                         </span>
                       )}
                     </div>

@@ -19,6 +19,12 @@ const titles = {
   '/admin/settings': 'Settings',
   '/admin/analytics': 'Analytics',
   '/admin/certificates': 'Certificates',
+  '/admin/impact': 'Impact numbers',
+  '/admin/stories': 'Success stories',
+  '/admin/credentials': 'Credentials',
+  '/admin/posts': 'Blog posts',
+  '/admin/talent': 'Talent wall',
+  '/admin/shops': 'Digital Dukaan',
 }
 
 export default function AdminLayout() {

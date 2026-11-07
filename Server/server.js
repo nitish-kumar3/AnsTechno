@@ -23,6 +23,14 @@ import uploadRoutes from './routes/uploadRoutes.js'
 import { imageDir } from './utils/imageStorage.js'
 import certificateRoutes from './routes/certificateRoutes.js'
 import chatRoutes from './routes/chatRoutes.js'
+import impactRoutes from './routes/impactRoutes.js'
+import storyRoutes from './routes/storyRoutes.js'
+import credentialRoutes from './routes/credentialRoutes.js'
+import postRoutes from './routes/postRoutes.js'
+import postAdminRoutes from './routes/postAdminRoutes.js'
+import talentRoutes from './routes/talentRoutes.js'
+import shopRoutes from './routes/shopRoutes.js'
+import shopAdminRoutes from './routes/shopAdminRoutes.js'
 
 
 const app = express()
@@ -51,6 +59,15 @@ app.use('/api/track', trackRoutes)
 app.use('/api/uploads', uploadRoutes)
 app.use('/api/certificates', certificateRoutes)
 app.use('/api/chat', chatRoutes)
+app.use('/api/impact', impactRoutes)
+app.use('/api/stories', storyRoutes)
+app.use('/api/credentials', credentialRoutes)
+app.use('/api/posts', postRoutes)
+app.use('/api/manage/posts', postAdminRoutes)
+app.use('/api/talent', talentRoutes)
+app.use('/api/shops', shopRoutes)
+app.use('/api/manage/shops', shopAdminRoutes)
+
 
 
 app.use(

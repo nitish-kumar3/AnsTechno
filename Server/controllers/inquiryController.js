@@ -55,7 +55,7 @@ import { escapeHtml, sendMail } from '../utils/sendMail.js'
 // PUBLIC: contact form, free call, estimator ya quiz se aaya lead (login nahi chahiye)
 export const createInquiry = async (req, res) => {
   try {
-    const type = ['call', 'estimate', 'quiz'].includes(req.body.type) ? req.body.type : 'message'
+    const type = ['call', 'estimate', 'quiz', 'hire', 'dukaan'].includes(req.body.type) ? req.body.type : 'message'
     const needsPhone = type !== 'message' // message ke alawa sabme phone chahiye
 
     // Form ka data nikalo
@@ -86,6 +86,8 @@ export const createInquiry = async (req, res) => {
     }
     if (type === 'estimate') message = 'Cost estimate request.'
     if (type === 'quiz') message = 'Online presence check completed.'
+    if (type === 'hire') message = 'Talent hire request.'
+    if (type === 'dukaan') message = 'Digital Dukaan request.'
 
     // Service ka slug aaya ho to uska title nikal lo
     if (service) {
@@ -111,6 +113,8 @@ export const createInquiry = async (req, res) => {
       call: 'Free call request',
       estimate: 'Cost estimate request',
       quiz: 'Online presence check',
+      hire: 'Talent hire request',
+      dukaan: 'Digital Dukaan request',
     }
     sendMail({
       subject: `${titles[type]}: ${name}`,
