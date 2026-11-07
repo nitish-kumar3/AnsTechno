@@ -32,6 +32,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import FloatingContact from '../ui/FloatingContact'
 import ChatWidget from '../chat/ChatWidget'
+import AnnouncementBar from './AnnouncementBar'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -47,6 +48,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-ink text-white">
       <ScrollToTop />
+      <AnnouncementBar />
       <Navbar />
       <main>
         <Outlet />

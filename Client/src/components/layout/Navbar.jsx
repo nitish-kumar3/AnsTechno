@@ -358,7 +358,11 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+    // <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+    <header
+      style={{ top: scrolled ? '1rem' : 'calc(1rem + var(--bar-h, 0px))' }}
+      className="fixed inset-x-0 z-50 flex justify-center px-4 transition-[top] duration-300"
+    >
       <div className="relative w-full max-w-5xl">
         <nav
           className={`flex items-center justify-between rounded-full border py-2 pl-5 pr-2 transition-all duration-300 ${

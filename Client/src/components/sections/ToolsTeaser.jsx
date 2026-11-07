@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Calculator, Gauge, Store } from 'lucide-react'
+import { ArrowRight, Calculator, Gauge, Store, Wrench } from 'lucide-react'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -33,6 +33,13 @@ const copy = {
         text: 'Get a simple online shop page with WhatsApp ordering and a QR poster.',
         cta: 'Get my shop page',
       },
+      {
+        to: '/free-tools',
+        icon: Wrench,
+        title: 'Free Tools for Shopkeepers',
+        text: 'Make a WhatsApp link, QR code, bill or offer poster in seconds.',
+        cta: 'Use free tools',
+      },
     ],
   },
   hi: {
@@ -62,6 +69,13 @@ const copy = {
         text: 'WhatsApp ऑर्डर और QR पोस्टर के साथ अपनी दुकान का आसान ऑनलाइन पेज पाएं।',
         cta: 'मेरा शॉप पेज बनवाएं',
       },
+      {
+        to: '/free-tools',
+        icon: Wrench,
+        title: 'दुकानदारों के लिए फ्री टूल',
+        text: 'WhatsApp लिंक, QR कोड, बिल या ऑफर पोस्टर चंद सेकंड में बनाइए।',
+        cta: 'फ्री टूल इस्तेमाल करें',
+      },
     ],
   },
 }
@@ -75,7 +89,7 @@ export default function ToolsTeaser() {
       <Container>
         <SectionHeading eyebrow={c.eyebrow} title={c.title} highlight={c.highlight} text={c.text} />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {c.cards.map((card, i) => (
             <motion.div
               key={card.to}

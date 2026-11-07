@@ -31,6 +31,8 @@ import postAdminRoutes from './routes/postAdminRoutes.js'
 import talentRoutes from './routes/talentRoutes.js'
 import shopRoutes from './routes/shopRoutes.js'
 import shopAdminRoutes from './routes/shopAdminRoutes.js'
+import announcementRoutes from './routes/announcementRoutes.js'
+import proofRoutes from './routes/proofRoutes.js'
 
 
 const app = express()
@@ -66,6 +68,8 @@ app.use('/api/posts', postRoutes)
 app.use('/api/manage/posts', postAdminRoutes)
 app.use('/api/talent', talentRoutes)
 app.use('/api/shops', shopRoutes)
+app.use('/api/announcements', announcementRoutes)
+app.use('/api/proof', proofRoutes)
 app.use('/api/manage/shops', shopAdminRoutes)
 
 

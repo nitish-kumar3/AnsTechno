@@ -136,6 +136,7 @@ const quickLinks = [
   { key: 'nav.blog', to: '/blog' },
   { key: 'nav.talent', to: '/talent' },
   { key: 'nav.dukaan', to: '/digital-dukaan' },
+  { key: 'nav.freeTools', to: '/free-tools' },
 ]
 
 const serviceKeys = ['footer.s1', 'footer.s2', 'footer.s3', 'footer.s4', 'footer.s5']

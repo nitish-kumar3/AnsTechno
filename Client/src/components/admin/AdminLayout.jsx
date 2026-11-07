@@ -25,6 +25,7 @@ const titles = {
   '/admin/posts': 'Blog posts',
   '/admin/talent': 'Talent wall',
   '/admin/shops': 'Digital Dukaan',
+  '/admin/announcements': 'Announcements',
 }
 
 export default function AdminLayout() {

@@ -11,6 +11,7 @@ export const translations = {
     'nav.blog': 'Blog',
     'nav.talent': 'Hire Talent',
     'nav.dukaan': 'Digital Dukaan',
+    'nav.freeTools': 'Free Tools',
 
     'hero.badge': 'Digital Agency · Software Company',
     'hero.title': 'We build brands, software &',
@@ -114,6 +115,7 @@ export const translations = {
     'nav.blog': 'ब्लॉग',
     'nav.talent': 'टैलेंट हायर करें',
     'nav.dukaan': 'डिजिटल दुकान',
+    'nav.freeTools': 'फ्री टूल',
 
     'hero.badge': 'डिजिटल एजेंसी · सॉफ्टवेयर कंपनी',
     'hero.title': 'हम बनाते हैं ब्रांड, सॉफ्टवेयर और',

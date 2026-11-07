@@ -19,6 +19,7 @@ import {
   FileText,
   Store,
   GraduationCap,
+  Megaphone,
 } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 
@@ -46,6 +47,7 @@ export default function AdminSidebar({ open, onClose, counts }) {
         { name: 'Success stories', to: '/admin/stories', icon: BookOpen },
         { name: 'Credentials', to: '/admin/credentials', icon: ShieldCheck },
         { name: 'Digital Dukaan', to: '/admin/shops', icon: Store },
+        { name: 'Announcements', to: '/admin/announcements', icon: Megaphone },
       ],
     },
     {

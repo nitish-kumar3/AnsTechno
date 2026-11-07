@@ -420,3 +420,28 @@ html[data-theme="light"] .blog-body a {
   padding: 0.5rem 0.75rem;
   text-align: left;
 }
+
+
+/* ============ BILL PRINT ============ */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  #bill-print,
+  #bill-print * {
+    visibility: visible !important;
+  }
+  #bill-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}  

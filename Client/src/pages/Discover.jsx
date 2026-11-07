@@ -11,14 +11,15 @@ import ToolsTeaser from '../components/sections/ToolsTeaser'
 import ImpactSection from '../components/sections/ImpactSection'
 import SuccessStories from '../components/sections/SuccessStories'
 import LatestPosts from '../components/sections/LatestPosts'
+import LiveProof from '../components/sections/LiveProof'
 import TalentTeaser from '../components/sections/TalentTeaser'
-
 
 export default function Discover() {
   return (
     <>
       <Hero />
       <Stats />
+      <LiveProof />
       <ServicesPreview />
       <ToolsTeaser />
       <TechStack />

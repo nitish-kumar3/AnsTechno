@@ -58,6 +58,7 @@ export const useImpact = () => useApi('/impact', pickItems)
 export const useStories = () => useApi('/stories', pickItems)
 export const useCredentials = () => useApi('/credentials', pickItems)
 export const useTalent = () => useApi('/talent', pickItems)
+export const useAnnouncements = () => useApi('/announcements', pickItems)
 
 // Contact info: pehle default dikhti hai, API se aate hi asli wali aa jati hai
 export function useSettings() {

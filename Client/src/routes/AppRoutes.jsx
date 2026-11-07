@@ -64,6 +64,8 @@ import AdminTalent from '../pages/admin/AdminTalent'
 import ShopPage from '../pages/ShopPage'
 import DigitalDukaan from '../pages/DigitalDukaan'
 import AdminShops from '../pages/admin/AdminShops'
+import FreeTools from '../pages/FreeTools'
+import AdminAnnouncements from '../pages/admin/AdminAnnouncements'
 
 
 
@@ -86,6 +88,8 @@ export default function AppRoutes() {
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="talent" element={<Talent />} />
         <Route path="digital-dukaan" element={<DigitalDukaan />} />
+        <Route path="free-tools" element={<FreeTools />} />
+        <Route path="free-tools/:tool" element={<FreeTools />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 
@@ -119,6 +123,7 @@ export default function AppRoutes() {
             <Route path="posts" element={<AdminPosts />} />
             <Route path="talent" element={<AdminTalent />} />
             <Route path="shops" element={<AdminShops />} />
+            <Route path="announcements" element={<AdminAnnouncements />} />
             <Route path="inquiries" element={<AdminInquiries />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>
